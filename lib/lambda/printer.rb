@@ -14,7 +14,6 @@ module Lambda
       when Abstraction
         @to.puts "#{prefix}λ#{term.over.name}"
         self.tree(term.body, child_prefix + "└──", child_prefix + "   ")
-        
       when Application
         @to.puts "#{prefix}@"
         self.tree(term.left,  child_prefix + "├──", child_prefix + "│  ")

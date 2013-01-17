@@ -22,7 +22,7 @@ module Lambda
       it { should parse("\\x. \\y. \\z. x").as(abstraction: { over: {variable: 'x'}, term: [abstraction: {over: {variable: 'y'}, term: [abstraction: { over: {variable: 'z'}, term: [ variable: 'x'] }]}]}) }
 
       it { should parse("\\x. x y").as(abstraction: { over: {variable: 'x'}, term: [{variable: 'x' }, {variable: 'y'}]}) }
-      
+
       it { should_not parse("x") }
       it { should_not parse("\\x") }
       it { should_not parse("\\x.") }

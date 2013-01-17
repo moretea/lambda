@@ -39,7 +39,7 @@ module Lambda
 
   class Application
     attr_reader :left, :right
-    
+
     def initialize left, right
       @left  = left
       @right = right
@@ -47,12 +47,12 @@ module Lambda
   end
 
   class Transformer < Parslet::Transform
-    rule(variable: simple(:name)) do 
-      Variable.new(name) 
+    rule(variable: simple(:name)) do
+      Variable.new(name)
     end
 
     rule(term: sequence(:parts)) do
-      if parts.length == 1 
+      if parts.length == 1
         parts.first
       else
         parts.inject do |left, right|
