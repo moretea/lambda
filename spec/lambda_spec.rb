@@ -1,5 +1,5 @@
 require "parslet/rig/rspec"
-require "lambda/parser"
+require "lambda"
 
 module Lambda
   describe LowLevelParser do

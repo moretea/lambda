@@ -22,30 +22,6 @@ module Lambda
     rule(:abstraction) { (str("\\") >> variable.as(:over) >> (spaces >> variable).repeat >> str(".") >> spaces? >> term.as(:term)).as(:abstraction) >> spaces? }
   end
 
-
-  class Variable
-    attr_reader :name
-    def initialize name
-      @name = name end
-  end
-
-  class Abstraction
-    attr_reader :over, :body
-    def initialize over, body
-      @over = over
-      @body = body
-    end
-  end
-
-  class Application
-    attr_reader :left, :right
-
-    def initialize left, right
-      @left  = left
-      @right = right
-    end
-  end
-
   class Transformer < Parslet::Transform
     rule(variable: simple(:name)) do
       Variable.new(name)
